@@ -20,7 +20,7 @@ public class TestArray {
 		}
 		System.out.println("==========");
 		
-		int a =10;
+		int a =101;
 		//a.
 		int[] arrA = new int[3];
 		arrA[2] =20;
