@@ -24,7 +24,7 @@ public class Testpolymorphism {
 		
 		TestInterface bit;
 		TestInterface bit2;
-		kh2.khSpecial();
+//		kh2.khSpecial();
 		kh2.method1();
 		
 		Driver ej = new DriverSub();
