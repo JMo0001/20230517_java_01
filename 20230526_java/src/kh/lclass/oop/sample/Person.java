@@ -1,12 +1,23 @@
 package kh.lclass.oop.sample;
+
+import java.io.Serializable;
+
 //import java.lang.String;	//쓸필요가 없다.
-public class Person /*extends Object // 쓸필요가 없다2 */ {
+public class Person /*extends Object // 쓸필요가 없다2 */ implements Serializable{
+	/**
+	 * 주석은 일반적으로 녹색
+	 * 이것은 파랑색
+	 * java docs에 표시됨.
+	 * 여기에 UID에 해당하는 생성날짜, 누가, 무엇때문에 작성하였는지를 남겨야 함.
+	 */
+	private static final long serialVersionUID = 2324920168885089596L;
 	protected String name;	//주민등록증상 이름
 	private int age;
-	private char gender;
+	private transient char gender;
 	
 	
 	//기본 생성자
+	/**파랑색 작성위치 여기*/
 	public Person() {}
 	
 	//allArgumentsConstructor
