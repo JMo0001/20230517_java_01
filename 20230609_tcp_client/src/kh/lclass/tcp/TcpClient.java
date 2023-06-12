@@ -28,6 +28,9 @@ public class TcpClient {
 			// 1. 서버의 ip주소와 서버가 정한 포트번호를 매개변수로 하여 클라이언트용 소켓 객체 생성
 			socket = new Socket(ip, port);
 			System.out.println("서버에 연결중...");
+			System.out.println("서버에 포트 "+socket.getLocalPort());
+			System.out.println("나의 port"+socket.getPort());
+			
 			// 5. 연결된 클라이언트와 입출력 스트림 생성
 			in = socket.getInputStream();
 			out = socket.getOutputStream();
