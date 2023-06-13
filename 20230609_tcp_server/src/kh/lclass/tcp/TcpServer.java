@@ -43,11 +43,20 @@ public class TcpServer {
 				wr = new BufferedWriter(new OutputStreamWriter(out));
 				
 				String receivedMsg = null;
-				while((receivedMsg = br.readLine()) != null ) {
-					System.out.println("받은메시지: "+ receivedMsg);
-					wr.write(receivedMsg+":메시지 잘 받았음.\n");
+//				방법1
+//				while((receivedMsg = br.readLine()) != null ) {
+//					System.out.println("받은메시지: "+ receivedMsg);
+//					wr.write(receivedMsg+":메시지 잘 받았음.\n");
+//					wr.flush();
+//				}
+//				방법2
+				do {
+					receivedMsg = br.readLine();
+					System.out.println("받은 메시지 : "+receivedMsg);
+					wr.write(receivedMsg+"메시지 잘 받았음.\n");
 					wr.flush();
-				}
+					
+				}while(receivedMsg!=null);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
