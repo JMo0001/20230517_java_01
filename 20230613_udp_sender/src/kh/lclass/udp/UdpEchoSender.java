@@ -16,14 +16,14 @@ public class UdpEchoSender {
 
 	public void senderUdp() {
 		// 포트번호 정함
-		int myport = 5001;
-		int destport = 6001;
+		int myPort = 5001;
+		int destPort = 6001;
 		String destName = "localhost";
 		BufferedReader br = null;
 		// DatagramSocket 생성
 		DatagramSocket dSock = null;
 		try {
-			dSock = new DatagramSocket(myport);
+			dSock = new DatagramSocket(myPort);
 			// 매개인자 없으면 자동 port 번호 할당.
 											//System.in이 기반스트림 역할.
 			br = new BufferedReader(new InputStreamReader(System.in));
@@ -43,10 +43,10 @@ public class UdpEchoSender {
 //			3. 연결한 클라이언트 ip주소를 가진 InetAddress 객체 생성.
 					destIp = InetAddress.getByName(destName);
 //			4. 전송할 메시지를 byte[]로 바꿈.
-					byte[] byteMst = sendMsg.getBytes();
+					byte[] byteMsg = sendMsg.getBytes();
 //			5. 전송할 메시지를 DatagramPacket 객체에 담음.
 					DatagramPacket sendData = 
-							new DatagramPacket(byteMst, byteMst.length, destIp, destport);
+							new DatagramPacket(byteMsg, byteMsg.length, destIp, destPort);
 //			6. 소켓 레퍼런스를 사용하여 메시지 전송
 					dSock.send(sendData);
 
@@ -72,7 +72,7 @@ public class UdpEchoSender {
 //				System.out.println(receivedData.getPort());//발신자 Port
 //				
 				String receivedStr = new String(receivedData.getData());
-				System.out.println("eho메시지 :"+receivedStr);
+				System.out.println("echo메시지 :"+receivedStr);
 				
 				
 				
