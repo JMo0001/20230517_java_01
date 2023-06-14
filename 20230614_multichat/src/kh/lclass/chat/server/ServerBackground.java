@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -24,6 +25,8 @@ public class ServerBackground {
 	
 	// 서버 생성 및 설정
 	public void setting() {
+		// 참고 : 동시접속자로 인해 map에 정보가 동기화되어 들어가도록 설정함.
+		Collections.synchronizedMap(mapClients);
 		try {
 			serverSocket = new ServerSocket(7777);
 			//방문자 접속을 계속 받아들임 >> while(true)인 이유 >> 무한반복.
