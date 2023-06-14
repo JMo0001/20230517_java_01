@@ -40,6 +40,12 @@ public class ServerBackground {
 			e.printStackTrace();
 		}
 	}
+	
+	//클라이언트 접속이 끊어지면 그 정보를 나타내 주는 메소드
+	public void removeClient(String nickname) {
+		gui.appendMsg(nickname+"님이 퇴장했습니다.");
+	}
+	
 	// 클라이언트 접속하면 그 정보를 나타내 주는 메소드
 	public void addClient(String nickname) {
 		gui.appendMsg(nickname+"님이 접속했습니다.");
@@ -90,6 +96,7 @@ class Client extends Thread{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
 	
 			
