@@ -2,7 +2,10 @@ package kh.lclass.db1.member.model.vo;
 
 import org.springframework.stereotype.Component;
 
-@Component
+import lombok.Data;
+
+
+@Component("memberVo")
 public class MemberVo {
 	/*MID    NOT NULL VARCHAR2(20)  
 	MPWD   NOT NULL VARCHAR2(20)  
