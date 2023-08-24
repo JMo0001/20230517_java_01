@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-@Component
+import lombok.Data;
+
+//@Data << component 포함
 public class BoardVo {
 //	BNO         NOT NULL NUMBER         
 //	BTITLE      NOT NULL VARCHAR2(300)  

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath }/board/insert">
+	<form action="${pageContext.request.contextPath }/board/insert" method="post">
 	제목:<input type="text" name="btitle"><br>
 	내용:<input type="text" name="bcontent"><br>
 	<input type="submit" value="등록">
