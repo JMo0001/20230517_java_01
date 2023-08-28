@@ -14,19 +14,22 @@ public class BoardDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public List<BoardVo> selectList(){
+	public List<BoardVo> selectList()throws Exception{
 		return sqlSession.selectList("board.selectList");
 	}
-	public BoardVo selectOne(int bno) {
+	public BoardVo selectOne(int bno) throws Exception {
 		return sqlSession.selectOne("board.selectOne", bno);
 	}
-	public int insert(BoardVo vo) {
-		return sqlSession.insert("board.insert", vo);
+	public BoardVo insert(BoardVo vo) throws Exception{
+//		System.out.println("[insert전] : "+vo);
+		int result =  sqlSession.insert("board.insert", vo);
+//		System.out.println("[insert후] : "+vo);
+		return vo;
 	}
-	public int update(BoardVo vo) {
+	public int update(BoardVo vo) throws Exception{
 		return sqlSession.update("board.update", vo);
 	}
-	public int delete(int bno) {
+	public int delete(int bno) throws Exception{
 		return sqlSession.delete("board.delete", bno);
 	}
 }

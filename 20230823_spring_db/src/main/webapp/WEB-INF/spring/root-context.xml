@@ -3,8 +3,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
@@ -39,7 +41,31 @@
 		<property name="dataSource" ref="dataSource"/>
 		
 	</bean>
-	<!-- @transactional 사용되는 코드를 aop 통해서 설정함 //TODO-->
+	<!-- 방법1 @transactional 사용되는 코드를 aop 통해서 설정함 //TODO-->
 	<tx:annotation-driven/>
 	
+	
+	 <!-- 방법 2 transaction 시점 등록 XML -->
+	 <!-- 
+	 <tx:advice id="txAdvice" transaction-manager="transactionManager">
+	 	<tx:attributes>
+	 		<tx:method name="select*" rollback-for="Exception" read-only="true" />
+	 		<tx:method name="insert*" rollback-for="Exception"/>
+	 		<tx:method name="update*" rollback-for="Exception"/>
+	 		<tx:method name="delete*" rollback-for="Exception"/>
+	 	</tx:attributes>
+	 </tx:advice>
+	 <aop:config>
+	 	<aop:pointcut id="serviceMethod" expression="executeion(public * kh.lclass..*Service.*(..))"/>
+	 	<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethod"/>
+	 </aop:config>
+	  -->
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
 </beans>

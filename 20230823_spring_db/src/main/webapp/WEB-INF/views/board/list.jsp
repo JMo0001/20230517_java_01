@@ -7,6 +7,7 @@
 <title>board/list</title>
 </head>
 <body>
+
 [[
 ${boardList }
 ]]
