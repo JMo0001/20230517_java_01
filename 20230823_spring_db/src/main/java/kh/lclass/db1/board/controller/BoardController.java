@@ -10,8 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
@@ -23,6 +25,7 @@ import kh.lclass.db1.board.model.vo.BoardVo;
 import kh.lclass.db1.common.FileUpload;
 
 @Controller
+//@RequestMapping(value = "/board", method = RequestMethod.GET) 줄임
 @RequestMapping("/board")
 public class BoardController {
 	
@@ -50,8 +53,10 @@ public class BoardController {
 		return mv;
 	}
 	
-	@GetMapping("/get")
-	public String get(Model model, int bno) throws Exception {
+	@GetMapping("/get/{bno}")
+	public String get(Model model, /* int bno*/
+			@PathVariable("bno") int bno
+			) throws Exception {
 		
 		//controller > JSP 데이터 전달
 		model.addAttribute("boardVo", boardService.selectOne(bno));

@@ -7,7 +7,7 @@
 <title>board/list</title>
 </head>
 <body>
-
+<a href="/board/get/${bno}"></a>
 [[
 ${boardList }
 ]]

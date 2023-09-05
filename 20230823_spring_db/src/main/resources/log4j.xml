@@ -11,10 +11,21 @@
 			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
 		</layout>
 	</appender>
+	<!-- File appenders -->
+	<appender name="dailyfiledest"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="./logs/file.log" />
+		<param nmae="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="DataPattern" value="[%d{HH:mm:ss}][%-5p](%F:%L)-%m%n"/>
+			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+		</layout>
+	</appender>
 
 	<!-- Application Loggers -->
 	<logger name="kh.lclass.db1">
 		<level value="debug" />
+		<apeender-ref ref="filedest">
 	</logger>
 
 	<!-- 3rdparty Loggers -->
